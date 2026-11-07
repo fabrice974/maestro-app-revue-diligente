@@ -3,13 +3,13 @@
  * contributeurs externes (cabinet comptable, ingénierie, conseil ESG). Chaque contributeur ne voit
  * que les tâches de son chantier ; le backbone garantit leur complétion et range les rapports dans SharePoint.
  */
-import { demarrerApp } from '@maestro/kit-app';
+import { demarrerApp } from '@maestro/sdk/kit';
 
 await demarrerApp({
   id: 'revue-diligente',
   nom: 'Revue diligente',
-  port: 4102,
-  jeton: 'demo-jeton-revue-diligente',
+  port: Number(process.env.PORT ?? 4102),
+  jeton: process.env.JETON_APP ?? 'demo-jeton-revue-diligente',
   couleur: '#0f7b6c',
   utilisateurParDefaut: 'lea',
   accueil: async ({ personnes, utilisateur }) => {
